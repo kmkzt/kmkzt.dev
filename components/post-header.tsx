@@ -1,26 +1,20 @@
 import Avatar from '../components/avatar'
 import DateFormater from '../components/date-formater'
-import CoverImage from '../components/cover-image'
 import PostTitle from '../components/post-title'
+import { Markdown } from '../interfaces/markdown'
 
-export default function PostHeader({ title, coverImage, date, author }) {
+export default function PostHeader({
+  title,
+  coverImage,
+  date,
+  author,
+}: Pick<Markdown, 'title' | 'coverImage' | 'date' | 'author'>) {
   return (
-    <>
+    <div>
       <PostTitle>{title}</PostTitle>
-      <div>
-        <Avatar name={author.name} picture={author.picture} />
-      </div>
-      <div>
-        <CoverImage title={title} src={coverImage} />
-      </div>
-      <div>
-        <div>
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
-        <div>
-          <DateFormater dateString={date} />
-        </div>
-      </div>
-    </>
+      <Avatar name={author.name} picture={author.picture} />
+      <DateFormater dateString={date} />
+      <img alt={title} src={coverImage} />
+    </div>
   )
 }

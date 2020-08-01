@@ -1,35 +1,31 @@
-import Container from '../components/container'
+import Head from 'next/head'
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+import { BLOG_NAME } from '../lib/constants'
+import { Field } from '../interfaces/markdown'
 
 export default function Index({ allPosts }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </>
+    <Layout>
+      <Head>
+        <title>{BLOG_NAME}</title>
+      </Head>
+      {heroPost && (
+        <HeroPost
+          title={heroPost.title}
+          coverImage={heroPost.coverImage}
+          date={heroPost.date}
+          author={heroPost.author}
+          slug={heroPost.slug}
+          excerpt={heroPost.excerpt}
+        />
+      )}
+      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+    </Layout>
   )
 }
 
@@ -41,7 +37,7 @@ export async function getStaticProps() {
     'author',
     'coverImage',
     'excerpt',
-  ])
+  ] as Field[])
 
   return {
     props: { allPosts },

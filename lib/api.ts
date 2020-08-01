@@ -1,43 +1,51 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
-
+import { Field, Markdown } from '../interfaces/markdown'
 const postsDirectory = join(process.cwd(), '_posts')
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
 }
 
-export function getPostBySlug(slug, fields = []) {
+export function getPostBySlug<T extends Field[]>(
+  slug: string,
+  fields: T
+): Pick<Markdown, T[number]> {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
-  const items = {}
-
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  return fields.reduce((items: any, field) => {
     if (field === 'slug') {
-      items[field] = realSlug
+      return {
+        ...items,
+        slug: realSlug,
+      }
     }
     if (field === 'content') {
-      items[field] = content
+      return {
+        ...items,
+        content,
+      }
     }
 
-    if (data[field]) {
-      items[field] = data[field]
+    return {
+      ...items,
+      [field]: data[field],
     }
-  })
-
-  return items
+  }, {})
 }
 
-export function getAllPosts(fields = []) {
+export function getAllPosts<T extends Field[]>(
+  fields: T
+): ReturnType<typeof getPostBySlug>[] {
   const slugs = getPostSlugs()
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? '-1' : '1'))
+    // @ts-ignore
+    .sort((po1, po2) => (po1.date > po2.date ? -1 : 1))
   return posts
 }

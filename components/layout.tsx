@@ -1,15 +1,13 @@
-import Alert from '../components/alert'
+import Header from '../components/header'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 
-export default function Layout({ preview, children }) {
+export default function Layout({ children }) {
   return (
     <>
       <Meta />
-      <div>
-        <Alert preview={preview} />
-        <main>{children}</main>
-      </div>
+      <Header />
+      <main>{children}</main>
       <Footer />
     </>
   )

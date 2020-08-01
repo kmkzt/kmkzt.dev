@@ -1,7 +1,6 @@
+import Link from 'next/link'
 import Avatar from '../components/avatar'
 import DateFormater from '../components/date-formater'
-import CoverImage from '../components/cover-image'
-import Link from 'next/link'
 
 export default function HeroPost({
   title,
@@ -14,7 +13,9 @@ export default function HeroPost({
   return (
     <section>
       <div>
-        <CoverImage title={title} src={coverImage} slug={slug} />
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+          <img alt={title} src={coverImage} />
+        </Link>
       </div>
       <div>
         <div>
