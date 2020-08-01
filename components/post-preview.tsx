@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import Avatar from '../components/avatar'
 import DateFormater from '../components/date-formater'
 import { Markdown } from '../interfaces/markdown'
+import PostLink from './post-link'
 
 export default function PostPreview({
   title,
@@ -16,13 +16,13 @@ export default function PostPreview({
 >) {
   return (
     <div>
-      <Link as={`/posts/${slug}`} href="/posts/[slug]">
+      <PostLink slug={slug}>
         <img alt={title} src={coverImage} />
-      </Link>
+      </PostLink>
       <h3>
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <PostLink slug={slug}>
           <a>{title}</a>
-        </Link>
+        </PostLink>
       </h3>
       <DateFormater dateString={date} />
       <p>{excerpt}</p>

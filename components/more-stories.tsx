@@ -1,6 +1,13 @@
 import PostPreview from '../components/post-preview'
-
-export default function MoreStories({ posts }) {
+import { Markdown } from '../interfaces/markdown'
+export default function MoreStories({
+  posts,
+}: {
+  posts: Pick<
+    Markdown,
+    'slug' | 'title' | 'coverImage' | 'date' | 'author' | 'excerpt'
+  >[]
+}) {
   return (
     <section>
       <h2>More Stories</h2>

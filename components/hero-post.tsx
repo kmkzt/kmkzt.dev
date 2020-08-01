@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import Avatar from '../components/avatar'
 import DateFormater from '../components/date-formater'
+import PostLink from './post-link'
 
 export default function HeroPost({
   title,
@@ -13,25 +13,19 @@ export default function HeroPost({
   return (
     <section>
       <div>
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <PostLink slug={slug}>
           <img alt={title} src={coverImage} />
-        </Link>
+        </PostLink>
       </div>
+      <h3>
+        <PostLink slug={slug}>
+          <a>{title}</a>
+        </PostLink>
+      </h3>
+      <DateFormater dateString={date} />
       <div>
-        <div>
-          <h3>
-            <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a>{title}</a>
-            </Link>
-          </h3>
-          <div>
-            <DateFormater dateString={date} />
-          </div>
-        </div>
-        <div>
-          <p>{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
+        <p>{excerpt}</p>
+        <Avatar name={author.name} picture={author.picture} />
       </div>
     </section>
   )
