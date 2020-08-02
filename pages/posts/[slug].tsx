@@ -1,39 +1,55 @@
+import { FC } from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
+import { Heading, Image, Box, Text } from 'rebass'
 import Markdown from '../../components/markdown'
-import PostHeader from '../../components/post-header'
+import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
-import { BLOG_NAME } from '../../lib/constants'
+import { BLOG_NAME } from '../../config/info'
 import markdownToHtml from '../../lib/markdownToHtml'
+import Loading from '../../components/loading'
+import { Field, Md } from '../../interfaces/md'
 
-export default function Post({ post, morePosts }) {
+const Post: FC<Pick<
+  Md,
+  | 'slug'
+  | 'title'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'content'
+  | 'coverImage'
+  | 'ogImage'
+>> = ({ slug, title, createdAt, updatedAt, content, ogImage, coverImage }) => {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
     <Layout>
       {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
+        <Loading />
       ) : (
         <>
           <article>
             <Head>
               <title>
-                {post.title} | Next.js Blog Example with {BLOG_NAME}
+                {title} | {BLOG_NAME}
               </title>
-              <meta property="og:image" content={post.ogImage.url} />
+              <meta property="og:image" content={ogImage} />
             </Head>
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage}
-              date={post.date}
-              author={post.author}
-            />
-            <Markdown content={post.content} />
+            <Box>
+              <Heading as="h1">{title}</Heading>
+              <Text>
+                公開日: <DateFormater dateString={createdAt} />
+              </Text>
+              <Text>
+                更新日: <DateFormater dateString={updatedAt} />
+              </Text>
+              <Image alt={title} src={coverImage} />
+            </Box>
+            <Markdown content={content} />
           </article>
         </>
       )}
@@ -44,21 +60,19 @@ export default function Post({ post, morePosts }) {
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug, [
     'title',
-    'date',
+    'createdAt',
+    'updatedAt',
     'slug',
-    'author',
     'content',
     'ogImage',
     'coverImage',
-  ])
+  ] as Field[])
   const content = await markdownToHtml(post.content || '')
 
   return {
     props: {
-      post: {
-        ...post,
-        content,
-      },
+      ...post,
+      content,
     },
   }
 }
@@ -77,3 +91,5 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
+
+export default Post

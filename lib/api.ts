@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
-import { Field, Markdown } from '../interfaces/markdown'
+import { Field, Md } from '../interfaces/md'
 const postsDirectory = join(process.cwd(), '_posts')
 
 export function getPostSlugs() {
@@ -11,7 +11,7 @@ export function getPostSlugs() {
 export function getPostBySlug<T extends Field[]>(
   slug: string,
   fields: T
-): Pick<Markdown, T[number]> {
+): Pick<Md, T[number]> {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -46,6 +46,6 @@ export function getAllPosts<T extends Field[]>(
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // @ts-ignore
-    .sort((po1, po2) => (po1.date > po2.date ? -1 : 1))
+    .sort((po1, po2) => (po1.createdAt > po2.createdAt ? -1 : 1))
   return posts
 }

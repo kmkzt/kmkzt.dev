@@ -3,15 +3,16 @@ export interface Author {
   picture: string
 }
 
-export interface Markdown {
+export interface Md {
   title: string
-  date: string
   slug: string
+  createdAt: string
+  updatedAt: string
+  tags: string
   excerpt: string
-  author: Author
   content: string
   ogImage: string
   coverImage: string
 }
 
-export type Field = keyof Markdown
+export type Field = keyof Md

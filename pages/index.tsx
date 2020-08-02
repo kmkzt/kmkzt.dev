@@ -1,45 +1,46 @@
+import { FC } from 'react'
 import Head from 'next/head'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
+import PostPreview from '../components/post-list'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
-import { BLOG_NAME } from '../lib/constants'
-import { Field } from '../interfaces/markdown'
+import { BLOG_NAME } from '../config/info'
+import { Field, Md } from '../interfaces/md'
 
-export default function Index({ allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+const Top: FC<{
+  posts: Pick<
+    Md,
+    'slug' | 'title' | 'content' | 'coverImage' | 'excerpt' | 'createdAt'
+  >[]
+}> = ({ posts }) => {
   return (
     <Layout>
       <Head>
         <title>{BLOG_NAME}</title>
       </Head>
-      {heroPost && (
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
+      {posts.map((post) => (
+        <PostPreview
+          key={post.slug}
+          title={post.title}
+          coverImage={post.coverImage}
+          createdAt={post.createdAt}
+          slug={post.slug}
+          excerpt={post.excerpt}
         />
-      )}
-      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      ))}
     </Layout>
   )
 }
 
-export async function getStaticProps() {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ] as Field[])
-
-  return {
-    props: { allPosts },
-  }
-}
+export const getStaticProps = async () => ({
+  props: {
+    posts: getAllPosts([
+      'title',
+      'createdAt',
+      'updatedAt',
+      'slug',
+      'coverImage',
+      'excerpt',
+    ] as Field[]),
+  },
+})
+export default Top
