@@ -953,7 +953,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.10.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2":
   version "7.11.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.11.0.tgz#f10245877042a815e07f7e693faff0ae9d3a2aac"
   integrity sha512-qArkXsjJq7H+T86WrIFV0Fnu/tNOkZ4cgXmjkzAu3b/58D5mFIO8JH/y77t7C9q0OdDRdh9s7Ue5GasYssxtXw==
@@ -1017,6 +1017,22 @@
     "@babel/helper-validator-identifier" "^7.10.4"
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
+
+"@emotion-icons/emotion-icon@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/@emotion-icons/emotion-icon/-/emotion-icon-2.0.1.tgz#c6950f4e1d6bbdb77e9df157ab66612a17d39fb2"
+  integrity sha512-lGEKbs8gaTiJ9ijgLuwzMBj6EF+ra/bDRMHTTSVkUXP6p5gBmwkg+XidprK01/ySGysdJFlLOVXLavPPfZu3bg==
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+    "@emotion/is-prop-valid" "^0.8.7"
+
+"@emotion-icons/octicons@2.6.1":
+  version "2.6.1"
+  resolved "https://registry.npmjs.org/@emotion-icons/octicons/-/octicons-2.6.1.tgz#f9aeb2ad93475d4c14f6bd5568ca125cc7e0a208"
+  integrity sha512-71fbTppMmTPQ4+OEORtojrzAite2hhmZjBebzoMzaJRTtcUx6phMsIwU9iDavr8q7zSK4mdlCBgs9sZGlsMQDA==
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+    "@emotion-icons/emotion-icon" "2.0.1"
 
 "@emotion/babel-plugin@^11.0.0-next.12":
   version "11.0.0-next.13"
@@ -1103,7 +1119,7 @@
   resolved "https://registry.npmjs.org/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
-"@emotion/is-prop-valid@0.8.8", "@emotion/is-prop-valid@^0.8.1":
+"@emotion/is-prop-valid@0.8.8", "@emotion/is-prop-valid@^0.8.1", "@emotion/is-prop-valid@^0.8.7":
   version "0.8.8"
   resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
   integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==

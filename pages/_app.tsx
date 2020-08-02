@@ -1,10 +1,20 @@
 // import App from 'next/app'
+import { useEffect } from 'react'
+import Router from 'next/router'
 import { CacheProvider, ThemeProvider } from '@emotion/react'
 import { cache } from '@emotion/css'
 import theme from '../config/theme'
+import { pageview } from '../lib/gtag'
 
 // see: https://nextjs.org/docs/advanced-features/custom-app
 function MyApp({ Component, pageProps }) {
+  // GoogleAnalitics page view
+  useEffect(() => {
+    Router.events.on('routeChangeComplete', pageview)
+    return () => {
+      Router.events.off('routeChangeComplete', pageview)
+    }
+  }, [])
   return (
     <ThemeProvider theme={theme}>
       <CacheProvider value={cache}>
