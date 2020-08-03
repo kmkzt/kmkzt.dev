@@ -1,19 +1,32 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
-import { Field, Md } from '../interfaces/md'
 const postsDirectory = join(process.cwd(), '_posts')
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory)
+export interface Author {
+  name: string
+  picture: string
 }
+
+export interface Post {
+  title: string
+  slug: string
+  tags: string
+  createdAt: string
+  updatedAt: string
+  excerpt: string
+  content: string
+  ogImage: string
+  coverImage: string
+}
+
+export type Field = keyof Post
 
 export function getPostBySlug<T extends Field[]>(
   slug: string,
   fields: T
-): Pick<Md, T[number]> {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
+): Pick<Post, T[number]> {
+  const fullPath = join(postsDirectory, `${slug}/index.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
@@ -22,7 +35,7 @@ export function getPostBySlug<T extends Field[]>(
     if (field === 'slug') {
       return {
         ...items,
-        slug: realSlug,
+        slug,
       }
     }
     if (field === 'content') {
@@ -42,7 +55,8 @@ export function getPostBySlug<T extends Field[]>(
 export function getAllPosts<T extends Field[]>(
   fields: T
 ): ReturnType<typeof getPostBySlug>[] {
-  const slugs = getPostSlugs()
+  const slugs = fs.readdirSync(postsDirectory)
+  console.log(slugs)
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // @ts-ignore

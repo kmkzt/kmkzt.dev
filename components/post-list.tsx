@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Image, Card, Text, Heading } from 'rebass'
 import Link from 'next/link'
-import { Md } from '../interfaces/md'
+import { Post } from '../api/posts'
 import DateFormater from './date-formater'
 
 const PostLink = ({ slug, children }) => (
@@ -11,7 +11,7 @@ const PostLink = ({ slug, children }) => (
 )
 
 const PostList: FC<Pick<
-  Md,
+  Post,
   'title' | 'coverImage' | 'createdAt' | 'excerpt' | 'slug'
 >> = ({ title, coverImage, createdAt, excerpt, slug }) => {
   return (

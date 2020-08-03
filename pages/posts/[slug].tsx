@@ -6,14 +6,14 @@ import { Heading, Image, Box, Text } from 'rebass'
 import Markdown from '../../components/markdown'
 import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
+import { getPostBySlug, getAllPosts } from '../../api/posts'
 import { BLOG_NAME } from '../../config/info'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Loading from '../../components/loading'
-import { Field, Md } from '../../interfaces/md'
+import { Field, Post } from '../../api/posts'
 
-const Post: FC<Pick<
-  Md,
+const PostPage: FC<Pick<
+  Post,
   | 'slug'
   | 'title'
   | 'createdAt'
@@ -92,4 +92,4 @@ export async function getStaticPaths() {
   }
 }
 
-export default Post
+export default PostPage

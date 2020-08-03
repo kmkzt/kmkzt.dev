@@ -2,13 +2,13 @@ import { FC } from 'react'
 import Head from 'next/head'
 import PostPreview from '../components/post-list'
 import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
+import { getAllPosts } from '../api/posts'
 import { BLOG_NAME } from '../config/info'
-import { Field, Md } from '../interfaces/md'
+import { Field, Post } from '../api/posts'
 
 const Top: FC<{
   posts: Pick<
-    Md,
+    Post,
     'slug' | 'title' | 'content' | 'coverImage' | 'excerpt' | 'createdAt'
   >[]
 }> = ({ posts }) => {
