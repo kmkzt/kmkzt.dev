@@ -5,7 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "create-post": "scripts/create-post.js"
+    "create-post": "scripts/create-post.js",
+    "update-time": "scripts/update-time.js"
   },
   "dependencies": {
     "@emotion/cache": "11.0.0-next.12",
