@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# BACKUP MEMO: update timestamp
+# git status　\
+# | grep -E 'new file: (.*.md)' \
+# | sed -e "s/[ \t]*new file://" \
+# | xargs -L 1 scripts/update-time.js
+
+
+PREFIX="modified:"
+# PREFIX="new file:" #FOR DEBUG
+
+POST_DIR="_posts"
+SPACE="[ \t]*"
+GREP_REGEX="${PREFIX}${SPACE}(${POST_DIR}/.*.md)$"
+SED_REGEX="s/${SPACE}${PREFIX}//"
+
+GET_FILE_LIST="git status | grep -E \"${GREP_REGEX}\" | sed -e \"${SED_REGEX}\""
+
+# DISPLAY
+echo -n -e "\n"
+echo "POSTS FILTER COMMAND: ${GET_FILE_LIST}"
+echo -n -e "\n"
+eval $GET_FILE_LIST | xargs -L 1 echo 'UPDATE POST: '
+eval $GET_FILE_LIST | xargs -L 1 scripts/update-time.js
+eval $GET_FILE_LIST | xargs -L 1 git add
