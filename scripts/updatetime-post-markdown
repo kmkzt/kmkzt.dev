@@ -2,25 +2,43 @@
 
 # BACKUP MEMO: update timestamp
 # git status　\
-# | grep -E 'new file: (.*.md)' \
-# | sed -e "s/[ \t]*new file://" \
+# | grep -E 'modified: (.*.md)' \
+# | sed -e "s/[ \t]*modified://" \
 # | xargs -L 1 scripts/update-time.js
 
-
-PREFIX="modified:"
-# PREFIX="new file:" #FOR DEBUG
-
+# Project config
 POST_DIR="_posts"
+
+# Constant
+FILE_PREFIX="modified:" # FILE_PREFIX="new file:" #For dubug
 SPACE="[ \t]*"
-GREP_REGEX="${PREFIX}${SPACE}(${POST_DIR}/.*.md)$"
-SED_REGEX="s/${SPACE}${PREFIX}//"
 
-GET_FILE_LIST="git status | grep -E \"${GREP_REGEX}\" | sed -e \"${SED_REGEX}\""
+# Command
+GREP="grep -E \"${FILE_PREFIX}${SPACE}(${POST_DIR}/.*.md)$\""
+SED="sed -e \"s/${SPACE}${FILE_PREFIX}//\""
 
-# DISPLAY
+# Remove unuse line of `git status`
+
+# Git status on stage
+UNUSE_LINE_NUM=$(git status | grep -n "Changes not staged for commit:" | sed -e "s/:.*//g")
+GIT_STATUS_STAGE="git status | sed \"${UNUSE_LINE_NUM},\\\$d\" | sed \"1,3d\""
+
+# For debug
+# echo $GIT_STATUS_STAGE
+# echo "Git status on stage:"
+# eval $GIT_STATUS_STAGE
+
+# Get markdown list
+GET_MD_LIST="${GIT_STATUS_STAGE} | ${GREP} | ${SED}"
 echo -n -e "\n"
-echo "POSTS FILTER COMMAND: ${GET_FILE_LIST}"
+echo "Get markdown list command:"
+echo $GET_MD_LIST
 echo -n -e "\n"
-eval $GET_FILE_LIST | xargs -L 1 echo 'UPDATE POST: '
-eval $GET_FILE_LIST | xargs -L 1 scripts/update-time.js
-eval $GET_FILE_LIST | xargs -L 1 git add
+echo "Markdown list:"
+eval $GET_MD_LIST
+echo -n -e "\n"
+
+# Update markdown of posts
+eval $GET_MD_LIST | xargs -L 1 echo 'UPDATE POST: '
+eval $GET_MD_LIST | xargs -L 1 scripts/update-time.js
+eval $GET_MD_LIST | xargs -L 1 git add
