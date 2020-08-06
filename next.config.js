@@ -1,3 +1,6 @@
+const { resolve } = require('path')
+const CopyFilePlugin = require('copy-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
 module.exports = {
   webpack(config, { dev }) {
     if (dev) {
@@ -16,6 +19,24 @@ module.exports = {
         ],
       })
     }
+
+    config.plugins.push(
+      new CopyFilePlugin({
+        patterns: [
+          {
+            context: '_posts',
+            from: '**/*.{jpg,png}',
+            to: resolve(__dirname, 'public/post'),
+            // The `content` argument is a [`Buffer`](https://nodejs.org/api/buffer.html) object, it could be converted to a `String` to be processed using `content.toString()`
+            // The `absoluteFrom` argument is a `String`, it is absolute path from where the file is being copied
+            // transform(content, absoluteFrom) {
+            //   return optimize(content);
+            // },
+          },
+        ],
+      }),
+      new WriteFilePlugin()
+    )
     return config
   },
 }
