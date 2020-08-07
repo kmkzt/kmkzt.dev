@@ -67,7 +67,10 @@ export async function getStaticProps({ params }) {
     'ogImage',
     'coverImage',
   ] as Field[])
-  const content = await markdownToHtml(post.content || '')
+  const content = await markdownToHtml(
+    post.content || '',
+    `/posts/${params.slug}`
+  )
 
   return {
     props: {

@@ -44,6 +44,8 @@
     "husky": "4.2.5",
     "prettier": "2.0.5",
     "typescript": "3.9.7",
+    "unist-util-is": "4.0.2",
+    "unist-util-visit-parents": "3.1.0",
     "write-file-webpack-plugin": "4.5.1"
   },
   "husky": {
