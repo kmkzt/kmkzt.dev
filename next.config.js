@@ -26,7 +26,7 @@ module.exports = {
           {
             context: '_posts',
             from: '**/*.{jpg,png}',
-            to: resolve(__dirname, 'public/post'),
+            to: resolve(__dirname, 'public/posts'),
             // The `content` argument is a [`Buffer`](https://nodejs.org/api/buffer.html) object, it could be converted to a `String` to be processed using `content.toString()`
             // The `absoluteFrom` argument is a `String`, it is absolute path from where the file is being copied
             // transform(content, absoluteFrom) {

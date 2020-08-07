@@ -7,14 +7,14 @@
 # | xargs -L 1 scripts/update-time.js
 
 # Project config
-POST_DIR="_posts"
+POSTS_DIR="_posts"
 
 # Constant
 FILE_PREFIX="modified:" # FILE_PREFIX="new file:" #For dubug
 SPACE="[ \t]*"
 
 # Command
-GREP="grep -E \"${FILE_PREFIX}${SPACE}(${POST_DIR}/.*.md)$\""
+GREP="grep -E \"${FILE_PREFIX}${SPACE}(${POSTS_DIR}/.*.md)$\""
 SED="sed -e \"s/${SPACE}${FILE_PREFIX}//\""
 
 # Remove unuse line of `git status`
