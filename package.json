@@ -21,6 +21,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "remark": "11.0.2",
+    "remark-basepath": "1.0.1",
     "remark-highlight.js": "6.0.0",
     "remark-html": "10.0.0"
   },
@@ -43,10 +44,7 @@
     "eslint-plugin-react-hooks": "4.0.8",
     "husky": "4.2.5",
     "prettier": "2.0.5",
-    "typescript": "3.9.7",
-    "unist-util-is": "4.0.2",
-    "unist-util-visit-parents": "3.1.0",
-    "write-file-webpack-plugin": "4.5.1"
+    "typescript": "3.9.7"
   },
   "husky": {
     "hooks": {
