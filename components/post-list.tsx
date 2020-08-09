@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Image, Card, Text, Heading } from 'rebass'
+import { Box, Heading } from 'rebass'
 import Link from 'next/link'
 import { Post } from '../api/posts'
 import DateFormater from './date-formater'
@@ -10,23 +10,18 @@ const PostLink = ({ slug, children }) => (
   </Link>
 )
 
-const PostList: FC<Pick<
-  Post,
-  'title' | 'coverImage' | 'createdAt' | 'excerpt' | 'slug'
->> = ({ title, coverImage, createdAt, excerpt, slug }) => {
+const PostList: FC<Pick<Post, 'title' | 'createdAt' | 'slug'>> = ({
+  title,
+  createdAt,
+  slug,
+}) => {
   return (
-    <Card>
-      <PostLink slug={slug}>
-        <Image alt={title} src={coverImage} />
-      </PostLink>
+    <Box>
       <Heading as="h3">
         <PostLink slug={slug}>{title}</PostLink>
       </Heading>
       <DateFormater dateString={createdAt} />
-      <PostLink slug={slug}>
-        <Text>{excerpt}</Text>
-      </PostLink>
-    </Card>
+    </Box>
   )
 }
 

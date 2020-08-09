@@ -11,17 +11,14 @@ const yyyyMMdd = time.replace(/[^0-9]/g, '')
 
 /**
  * Markdown Meta
- * @type {Omit<import("../api/posts").Post, 'slug'>}
+ * @type {Omit<import("../api/posts").Post, 'slug' | 'excerpt'>}
  */
 const { content, ...info } = {
   content: 'TODO: write contents.',
   title: title || 'TODO: write title',
   tags: '',
-  excerpt: '',
   createdAt: time,
   updatedAt: time,
-  coverImage: '',
-  ogImage: '',
 }
 
 /**

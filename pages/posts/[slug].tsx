@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
-import { Heading, Image, Box, Text } from 'rebass'
+import { Heading, Box, Text } from 'rebass'
 import Markdown from '../../components/markdown'
 import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
@@ -14,14 +14,8 @@ import { Field, Post } from '../../api/posts'
 
 const PostPage: FC<Pick<
   Post,
-  | 'slug'
-  | 'title'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'content'
-  | 'coverImage'
-  | 'ogImage'
->> = ({ slug, title, createdAt, updatedAt, content, ogImage, coverImage }) => {
+  'slug' | 'title' | 'createdAt' | 'updatedAt' | 'content'
+>> = ({ slug, title, createdAt, updatedAt, content }) => {
   const router = useRouter()
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />
@@ -31,27 +25,24 @@ const PostPage: FC<Pick<
       {router.isFallback ? (
         <Loading />
       ) : (
-        <>
-          <article>
-            <Head>
-              <title>
-                {title} | {BLOG_NAME}
-              </title>
-              <meta property="og:image" content={ogImage} />
-            </Head>
-            <Box>
-              <Heading as="h1">{title}</Heading>
-              <Text>
-                公開日: <DateFormater dateString={createdAt} />
-              </Text>
-              <Text>
-                更新日: <DateFormater dateString={updatedAt} />
-              </Text>
-              <Image alt={title} src={coverImage} />
-            </Box>
-            <Markdown content={content} />
-          </article>
-        </>
+        <article>
+          <Head>
+            <title>
+              {title} | {BLOG_NAME}
+            </title>
+            {/* <meta property="og:image" content={ogImage} /> */}
+          </Head>
+          <Box>
+            <Heading as="h1">{title}</Heading>
+            <Text>
+              公開日: <DateFormater dateString={createdAt} />
+            </Text>
+            <Text>
+              更新日: <DateFormater dateString={updatedAt} />
+            </Text>
+          </Box>
+          <Markdown content={content} />
+        </article>
       )}
     </Layout>
   )
@@ -64,8 +55,6 @@ export async function getStaticProps({ params }) {
     'updatedAt',
     'slug',
     'content',
-    'ogImage',
-    'coverImage',
   ] as Field[])
   const content = await markdownToHtml(
     post.content || '',

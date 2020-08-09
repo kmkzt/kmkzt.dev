@@ -7,29 +7,22 @@ import { BLOG_NAME } from '../config/info'
 import { Field, Post } from '../api/posts'
 
 const Top: FC<{
-  posts: Pick<
-    Post,
-    'slug' | 'title' | 'content' | 'coverImage' | 'excerpt' | 'createdAt'
-  >[]
-}> = ({ posts }) => {
-  return (
-    <Layout>
-      <Head>
-        <title>{BLOG_NAME}</title>
-      </Head>
-      {posts.map((post) => (
-        <PostPreview
-          key={post.slug}
-          title={post.title}
-          coverImage={post.coverImage}
-          createdAt={post.createdAt}
-          slug={post.slug}
-          excerpt={post.excerpt}
-        />
-      ))}
-    </Layout>
-  )
-}
+  posts: Pick<Post, 'slug' | 'title' | 'content' | 'createdAt'>[]
+}> = ({ posts }) => (
+  <Layout>
+    <Head>
+      <title>{BLOG_NAME}</title>
+    </Head>
+    {posts.map((post) => (
+      <PostPreview
+        key={post.slug}
+        title={post.title}
+        createdAt={post.createdAt}
+        slug={post.slug}
+      />
+    ))}
+  </Layout>
+)
 
 export const getStaticProps = async () => ({
   props: {
@@ -38,7 +31,6 @@ export const getStaticProps = async () => ({
       'createdAt',
       'updatedAt',
       'slug',
-      'coverImage',
       'excerpt',
     ] as Field[]),
   },

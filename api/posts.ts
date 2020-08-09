@@ -16,8 +16,6 @@ export interface Post {
   updatedAt: string
   excerpt: string
   content: string
-  ogImage: string
-  coverImage: string
 }
 
 export type Field = keyof Post
@@ -28,7 +26,7 @@ export function getPostBySlug<T extends Field[]>(
 ): Pick<Post, T[number]> {
   const fullPath = join(postsDirectory, `${slug}/index.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+  const { data, content, excerpt } = matter(fileContents, { excerpt: true })
 
   // Ensure only the minimal needed data is exposed
   return fields.reduce((items: any, field) => {
@@ -42,6 +40,12 @@ export function getPostBySlug<T extends Field[]>(
       return {
         ...items,
         content,
+      }
+    }
+    if (field === 'excerpt') {
+      return {
+        ...items,
+        excerpt,
       }
     }
 
