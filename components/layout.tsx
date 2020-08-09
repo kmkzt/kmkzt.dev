@@ -61,11 +61,11 @@ const Layout: FC = ({ children }) => (
           </Link>
         </Heading>
         <Flex justifyContent="center">
-          <SNSLink mr="4px" href={`https://github.com/${GITHUB_ACCOUNT}`}>
-            <Github size={24} />
-          </SNSLink>
           <SNSLink href={`https://twitter.com/${TWITTER_ACCOUNT}`}>
             <Twitter size={24} />
+          </SNSLink>
+          <SNSLink mr="4px" href={`https://github.com/${GITHUB_ACCOUNT}`}>
+            <Github size={24} />
           </SNSLink>
         </Flex>
       </Flex>

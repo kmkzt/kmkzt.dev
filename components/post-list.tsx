@@ -12,10 +12,7 @@ const PostLink: FC<{ slug: string }> = ({ slug, children }) => (
 )
 
 const PostTitle = styled(Text)`
-  color: ${(props) => {
-    console.log(props)
-    return props?.theme?.colors?.primary || '#27f'
-  }};
+  color: ${(props) => props?.theme?.colors?.primary || '#27f'};
 `
 const PostList: FC<Pick<Post, 'title' | 'createdAt' | 'slug'>> = ({
   title,
