@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
-import { Heading, Box, Text } from 'rebass'
+import { Heading, Box, Text, Flex } from 'rebass'
 import Markdown from '../../components/markdown'
 import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
@@ -20,30 +20,35 @@ const PostPage: FC<Pick<
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />
   }
+  if (router.isFallback) {
+    return (
+      <Layout>
+        <Loading />
+      </Layout>
+    )
+  }
   return (
     <Layout>
-      {router.isFallback ? (
-        <Loading />
-      ) : (
-        <article>
-          <Head>
-            <title>
-              {title} | {BLOG_NAME}
-            </title>
-            {/* <meta property="og:image" content={ogImage} /> */}
-          </Head>
-          <Box>
-            <Heading as="h1">{title}</Heading>
-            <Text>
+      <article>
+        <Head>
+          <title>
+            {title} | {BLOG_NAME}
+          </title>
+          {/* <meta property="og:image" content={ogImage} /> */}
+        </Head>
+        <Box>
+          <Heading as="h1">{title}</Heading>
+          <Flex>
+            <Text mr={2}>
               公開日: <DateFormater dateString={createdAt} />
             </Text>
             <Text>
               更新日: <DateFormater dateString={updatedAt} />
             </Text>
-          </Box>
-          <Markdown content={content} />
-        </article>
-      )}
+          </Flex>
+        </Box>
+        <Markdown content={content} />
+      </article>
     </Layout>
   )
 }

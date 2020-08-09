@@ -60,7 +60,6 @@ export function getAllPosts<T extends Field[]>(
   fields: T
 ): ReturnType<typeof getPostBySlug>[] {
   const slugs = fs.readdirSync(postsDirectory)
-  console.log(slugs)
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // @ts-ignore

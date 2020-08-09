@@ -1,60 +1,79 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import styled from '@emotion/styled'
 import { Global, css } from '@emotion/react'
 import { Github } from '@emotion-icons/simple-icons/Github'
 import { Twitter } from '@emotion-icons/simple-icons/Twitter'
-import { Heading, Flex } from 'rebass'
+import { Heading, Flex, Box, Link as RELink } from 'rebass'
+import { FC } from 'react'
 import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, BLOG_NAME } from '../config/info'
 
-export default function Layout({ children }) {
-  return (
-    <>
-      <Head>
-        <meta
+const SNSLink = styled(RELink)`
+  & > * {
+    display: inline-block;
+    padding: 0 2px;
+  }
+`
+
+const Layout: FC = ({ children }) => (
+  <>
+    <Head>
+      {/* <meta
           name="description"
           content={`A statically generated blog example using Next.js and ${BLOG_NAME}.`}
-        />
-        {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
-      </Head>
-      <Global
-        styles={css`
-          html,
-          body {
-            margin: 0;
-            min-height: 100%;
-            min-height: 100vh;
-            font-family: Helvetica, Arial, sans-serif;
-          }
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-          a {
-            color: inherit;
-            text-decoration: inherit;
-          }
-          img {
-            max-width: 100%;
-          }
-        `}
-      />
-      <Flex as="header" justifyContent="space-between" px="8px" py="4px">
-        <Heading as="h2">
+        /> */}
+      {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
+    </Head>
+    <Global
+      styles={css`
+        html,
+        body {
+          margin: 0;
+          min-height: 100%;
+          min-height: 100vh;
+          font-family: Helvetica, Arial, sans-serif;
+        }
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        a {
+          color: inherit;
+          text-decoration: inherit;
+        }
+        img {
+          max-width: 100%;
+        }
+      `}
+    />
+    <Box width={['100%', '100%', '800px']} mx="auto" minHeight="100vh">
+      <Flex
+        as="header"
+        justifyContent="space-between"
+        alignItems="center"
+        px="8px"
+        py="4px"
+      >
+        <Heading as="h1" style={{ textAlign: 'center' }}>
           <Link href="/">
             <a>{BLOG_NAME}</a>
           </Link>
         </Heading>
-        <Flex>
-          <a href={`https://github.com/${GITHUB_ACCOUNT}`}>
-            <Github size={30} />
-          </a>
-          <a href={`https://twitter.com/${TWITTER_ACCOUNT}`}>
-            <Twitter size={30} />
-          </a>
+        <Flex justifyContent="center">
+          <SNSLink mr="4px" href={`https://github.com/${GITHUB_ACCOUNT}`}>
+            <Github size={24} />
+          </SNSLink>
+          <SNSLink href={`https://twitter.com/${TWITTER_ACCOUNT}`}>
+            <Twitter size={24} />
+          </SNSLink>
         </Flex>
       </Flex>
-      <main>{children}</main>
-    </>
-  )
-}
+      <Box as="main" p="16px">
+        {children}
+      </Box>
+    </Box>
+  </>
+)
+
+export default Layout

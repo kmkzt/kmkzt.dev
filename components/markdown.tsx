@@ -36,13 +36,13 @@ const MarkdownWrap = styled.div`
   }
   a:link,
   a:visited {
-    color: #16f;
+    color: ${(props) => props?.theme?.color?.primary || '#16f'};
   }
   img {
     max-width: 100%;
   }
 `
-export default function Markdown({ content }) {
+export default function Markdown({ content }: { content: string }) {
   return (
     <>
       <Head>
