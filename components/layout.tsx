@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { Global, css } from '@emotion/react'
-import { MarkGithub } from '@emotion-icons/octicons/MarkGithub'
-import { Heading } from 'rebass'
-import { GITHUB_ACCOUNT, BLOG_NAME } from '../config/info'
+import { Github } from '@emotion-icons/simple-icons/Github'
+import { Twitter } from '@emotion-icons/simple-icons/Twitter'
+import { Heading, Flex } from 'rebass'
+import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, BLOG_NAME } from '../config/info'
 
 export default function Layout({ children }) {
   return (
@@ -38,19 +39,22 @@ export default function Layout({ children }) {
           }
         `}
       />
-      <header>
+      <Flex as="header" justifyContent="space-between" px="8px" py="4px">
         <Heading as="h2">
           <Link href="/">
             <a>{BLOG_NAME}</a>
           </Link>
         </Heading>
-      </header>
+        <Flex>
+          <a href={`https://github.com/${GITHUB_ACCOUNT}`}>
+            <Github size={30} />
+          </a>
+          <a href={`https://twitter.com/${TWITTER_ACCOUNT}`}>
+            <Twitter size={30} />
+          </a>
+        </Flex>
+      </Flex>
       <main>{children}</main>
-      <footer>
-        <a href={`https://github.com/${GITHUB_ACCOUNT}`}>
-          <MarkGithub size={30} />
-        </a>
-      </footer>
     </>
   )
 }
