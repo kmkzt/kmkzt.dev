@@ -7,7 +7,7 @@ import Markdown from '../../components/markdown'
 import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../api/posts'
-import { BLOG_NAME } from '../../config/info'
+import { SITE_NAME } from '../../config/info'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Loading from '../../components/loading'
 import { Field, Post } from '../../api/posts'
@@ -32,7 +32,7 @@ const PostPage: FC<Pick<
       <article>
         <Head>
           <title>
-            {title} | {BLOG_NAME}
+            {title} | {SITE_NAME}
           </title>
           {/* <meta property="og:image" content={ogImage} /> */}
         </Head>

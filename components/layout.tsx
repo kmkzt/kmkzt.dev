@@ -6,7 +6,7 @@ import { Github } from '@emotion-icons/simple-icons/Github'
 import { Twitter } from '@emotion-icons/simple-icons/Twitter'
 import { Heading, Flex, Box, Link as RELink } from 'rebass'
 import { FC } from 'react'
-import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, BLOG_NAME } from '../config/info'
+import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, SITE_NAME } from '../config/info'
 
 const SNSLink = styled(RELink)`
   & > * {
@@ -20,7 +20,7 @@ const Layout: FC = ({ children }) => (
     <Head>
       {/* <meta
           name="description"
-          content={`A statically generated blog example using Next.js and ${BLOG_NAME}.`}
+          content={`A statically generated blog example using Next.js and ${SITE_NAME}.`}
         /> */}
       {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
     </Head>
@@ -57,7 +57,7 @@ const Layout: FC = ({ children }) => (
       >
         <Heading as="h1" style={{ textAlign: 'center' }}>
           <Link href="/">
-            <a>{BLOG_NAME}</a>
+            <a>{SITE_NAME}</a>
           </Link>
         </Heading>
         <Flex justifyContent="center">

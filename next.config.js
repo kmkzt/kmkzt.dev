@@ -2,7 +2,13 @@ const { resolve } = require('path')
 const CopyFilePlugin = require('copy-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 module.exports = {
-  webpack(config, { dev }) {
+  webpack(config, { dev, isServer }) {
+    // https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
+    if (!isServer) {
+      config.node = {
+        fs: 'empty',
+      }
+    }
     if (dev) {
       config.module.rules.push({
         enforce: 'pre',

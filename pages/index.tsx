@@ -3,7 +3,7 @@ import Head from 'next/head'
 import PostPreview from '../components/post-list'
 import Layout from '../components/layout'
 import { getAllPosts } from '../api/posts'
-import { BLOG_NAME } from '../config/info'
+import { SITE_NAME } from '../config/info'
 import { Field, Post } from '../api/posts'
 
 const Top: FC<{
@@ -11,7 +11,7 @@ const Top: FC<{
 }> = ({ posts }) => (
   <Layout>
     <Head>
-      <title>{BLOG_NAME}</title>
+      <title>{SITE_NAME}</title>
     </Head>
     {posts.map((post) => (
       <PostPreview

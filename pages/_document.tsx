@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { extractCritical } from '@emotion/server'
-import { GA_TRACKING_ID } from '../config/info'
+import { GA_TRACKING_ID, SITE_NAME } from '../config/info'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -41,6 +41,12 @@ export default class MyDocument extends Document {
             });
           `,
             }}
+          />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={SITE_NAME}
+            href="/rss.xml"
           />
         </Head>
         <body>
