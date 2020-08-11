@@ -16,7 +16,7 @@ const POSTXml = (posts: RSSPost[]) =>
   <pubDate>${createdAt}</pubDate>
   <description>
     <![CDATA[${
-      // TODO: fix contennt
+      // TODO: fix contennt. replace html string.
       // content
       ''
     }]]>
@@ -24,8 +24,8 @@ const POSTXml = (posts: RSSPost[]) =>
 </item>`,
     ''
   )
-const RSSXml = (posts: RSSPost[]) => `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+const RSSXml = (posts: RSSPost[]) => `<?xml version="1.0" ?>
+<rss version="2.0">
 <channel>
 <title>${SITE_NAME}</title>
 <link>${SITE_URL}</link>
