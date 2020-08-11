@@ -36,6 +36,14 @@ ${POSTXml(posts)}
 </channel>
 </rss>`
 
+// FIX: Don't work `yarn next export`.
+// refference:
+// - Dynamic
+//   https://github.com/vercel/next.js/issues/9051#issuecomment-556824393
+// or
+// - Static generate.
+//   https://github.com/vercel/next.js/blob/canary/examples/with-sitemap/scripts/generate-sitemap.js
+
 export default class Rss extends Component {
   static async getInitialProps({ res }: NextPageContext) {
     if (!res) {
