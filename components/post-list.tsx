@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import { Box, Heading, Text } from 'rebass'
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import DateFormater from './date-formater'
+import { FC } from 'react'
+import { Box, Heading, Text } from 'rebass'
 import { Post } from '../api/posts'
 import { ThemeProps } from '../config/theme'
+import DateFormater from './date-formater'
 
 const PostLink: FC<{ slug: string }> = ({ slug, children }) => (
   <Link as={`/posts/${slug}`} href="/posts/[slug]">

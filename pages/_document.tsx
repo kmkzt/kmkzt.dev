@@ -1,10 +1,10 @@
+import { extractCritical } from '@emotion/server'
 import Document, {
   Head,
   Main,
   NextScript,
   DocumentContext,
 } from 'next/document'
-import { extractCritical } from '@emotion/server'
 import { GA_TRACKING_ID, SITE_NAME } from '../config/info'
 
 export default class MyDocument extends Document {

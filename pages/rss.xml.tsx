@@ -1,7 +1,7 @@
-import { Component } from 'react'
 import { NextPageContext } from 'next'
-import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '../config/info'
+import { Component } from 'react'
 import { Post, getAllPosts } from '../api/posts'
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '../config/info'
 
 const POST_PARAMETER = ['title', 'slug', 'content', 'createdAt'] as const
 type RSSPost = Pick<Post, typeof POST_PARAMETER[number]>

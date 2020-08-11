@@ -1,10 +1,9 @@
-import { FC } from 'react'
 import Head from 'next/head'
-import PostPreview from '../components/post-list'
+import { FC } from 'react'
+import { getAllPosts, Field, Post } from '../api/posts'
 import Layout from '../components/layout'
-import { getAllPosts } from '../api/posts'
+import PostPreview from '../components/post-list'
 import { SITE_NAME } from '../config/info'
-import { Field, Post } from '../api/posts'
 
 const Top: FC<{
   posts: Pick<Post, 'slug' | 'title' | 'content' | 'createdAt'>[]

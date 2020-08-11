@@ -1,12 +1,9 @@
 import remark from 'remark'
 import basepath from 'remark-basepath'
 // @ts-expect-error
-import html from 'remark-html'
-// @ts-expect-error
 import highlight from 'remark-highlight.js'
-
-const isRelativeImage = (str: string) =>
-  str.match(/\.\/(.*?.(svg|png|jpg|jpeg|gif)$)/)
+// @ts-expect-error
+import html from 'remark-html'
 
 export default async function markdownToHtml(
   markdown: string,

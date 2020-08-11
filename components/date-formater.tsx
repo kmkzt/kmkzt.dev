@@ -1,6 +1,6 @@
-import { Text } from 'rebass'
 import { parseISO, format } from 'date-fns'
 import { FC } from 'react'
+import { Text } from 'rebass'
 
 const DateFormater: FC<{ dateString: string }> = ({ dateString }) => (
   <Text as="time" dateTime={dateString}>

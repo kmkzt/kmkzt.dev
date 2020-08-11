@@ -1,10 +1,10 @@
 // import App from 'next/app'
-import { useEffect } from 'react'
+import { cache } from '@emotion/css'
+import { CacheProvider, ThemeProvider } from '@emotion/react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
-import { CacheProvider, ThemeProvider } from '@emotion/react'
-import { cache } from '@emotion/css'
+import { useEffect } from 'react'
 import theme from '../config/theme'
 import { pageview } from '../lib/gtag'
 

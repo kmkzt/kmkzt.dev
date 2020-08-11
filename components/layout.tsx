@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import styled from '@emotion/styled'
-import { Global, css } from '@emotion/react'
 import { Github } from '@emotion-icons/simple-icons/Github'
 import { Twitter } from '@emotion-icons/simple-icons/Twitter'
-import { Heading, Flex, Box, Link as RELink } from 'rebass'
+import { Global, css } from '@emotion/react'
+import styled from '@emotion/styled'
+import Head from 'next/head'
+import Link from 'next/link'
 import { FC } from 'react'
+import { Heading, Flex, Box, Link as RELink } from 'rebass'
 import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, SITE_NAME } from '../config/info'
 
 const SNSLink = styled(RELink)`
