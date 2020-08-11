@@ -2,6 +2,8 @@ import { FC } from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
+import { ParsedUrlQuery } from 'querystring'
+import { GetStaticPaths } from 'next'
 import { Heading, Box, Text, Flex } from 'rebass'
 import Markdown from '../../components/markdown'
 import DateFormater from '../../components/date-formater'
@@ -12,10 +14,22 @@ import markdownToHtml from '../../lib/markdownToHtml'
 import Loading from '../../components/loading'
 import { Field, Post } from '../../api/posts'
 
-const PostPage: FC<Pick<
+type PageProps = Pick<
   Post,
   'slug' | 'title' | 'createdAt' | 'updatedAt' | 'content'
->> = ({ slug, title, createdAt, updatedAt, content }) => {
+>
+
+interface PageParams extends ParsedUrlQuery {
+  slug: string
+}
+
+const PostPage: FC<PageProps> = ({
+  slug,
+  title,
+  createdAt,
+  updatedAt,
+  content,
+}) => {
   const router = useRouter()
   if (!router.isFallback && !slug) {
     return <ErrorPage statusCode={404} />
@@ -27,6 +41,7 @@ const PostPage: FC<Pick<
       </Layout>
     )
   }
+
   return (
     <Layout>
       <article>
@@ -53,8 +68,12 @@ const PostPage: FC<Pick<
   )
 }
 
-export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
+export async function getStaticProps({
+  params,
+}: {
+  params: PageParams
+}): Promise<{ props: PageProps }> {
+  const info = getPostBySlug(params.slug, [
     'title',
     'createdAt',
     'updatedAt',
@@ -62,19 +81,19 @@ export async function getStaticProps({ params }) {
     'content',
   ] as Field[])
   const content = await markdownToHtml(
-    post.content || '',
+    info.content || '',
     `/posts/${params.slug}`
   )
 
   return {
     props: {
-      ...post,
+      ...info,
       content,
     },
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   const posts = getAllPosts(['slug'])
 
   return {

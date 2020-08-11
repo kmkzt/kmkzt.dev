@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import styled from '@emotion/styled'
+import { ThemeProps } from '../config/theme'
 
-const MarkdownWrap = styled.div`
+const MarkdownWrap = styled.div<ThemeProps>`
   h1,
   h2,
   h3,
@@ -36,7 +37,7 @@ const MarkdownWrap = styled.div`
   }
   a:link,
   a:visited {
-    color: ${(props) => props?.theme?.color?.primary || '#16f'};
+    color: ${({ theme }) => theme?.colors?.primary || '#16f'};
   }
   img {
     max-width: 100%;

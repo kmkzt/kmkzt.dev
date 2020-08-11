@@ -2,8 +2,9 @@ import { FC } from 'react'
 import { Box, Heading, Text } from 'rebass'
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import { Post } from '../api/posts'
 import DateFormater from './date-formater'
+import { Post } from '../api/posts'
+import { ThemeProps } from '../config/theme'
 
 const PostLink: FC<{ slug: string }> = ({ slug, children }) => (
   <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -11,8 +12,8 @@ const PostLink: FC<{ slug: string }> = ({ slug, children }) => (
   </Link>
 )
 
-const PostTitle = styled(Text)`
-  color: ${(props) => props?.theme?.colors?.primary || '#27f'};
+const PostTitle = styled(Text)<ThemeProps>`
+  color: ${({ theme }) => theme?.colors?.primary || '#27f'};
 `
 const PostList: FC<Pick<Post, 'title' | 'createdAt' | 'slug'>> = ({
   title,

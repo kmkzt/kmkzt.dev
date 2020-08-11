@@ -1,5 +1,6 @@
 // https://github.com/rebassjs/rebass/blob/master/packages/preset-material/src/index.js
-export default {
+
+const theme = {
   googleFonts:
     'https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700&display=swap',
   colors: {
@@ -116,3 +117,7 @@ export default {
     },
   },
 }
+
+export type ThemeContext = typeof theme
+export type ThemeProps = { theme?: ThemeContext }
+export default theme

@@ -1,5 +1,6 @@
 // import App from 'next/app'
 import { useEffect } from 'react'
+import { AppProps } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 import { CacheProvider, ThemeProvider } from '@emotion/react'
@@ -8,7 +9,7 @@ import theme from '../config/theme'
 import { pageview } from '../lib/gtag'
 
 // see: https://nextjs.org/docs/advanced-features/custom-app
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   // GoogleAnalitics page view
   useEffect(() => {
     Router.events.on('routeChangeComplete', pageview)

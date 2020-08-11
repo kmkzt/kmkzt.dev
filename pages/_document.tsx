@@ -1,9 +1,14 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from 'next/document'
 import { extractCritical } from '@emotion/server'
 import { GA_TRACKING_ID, SITE_NAME } from '../config/info'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
     const styles = extractCritical(initialProps.html)
     return {
