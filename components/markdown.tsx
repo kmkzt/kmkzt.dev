@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
-import { ThemeProps } from '../config/theme'
+import { ThemeProps } from '../lib/theme'
 
 const MarkdownWrap = styled.div<ThemeProps>`
   h1,

@@ -2,8 +2,8 @@ import styled from '@emotion/styled'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Box, Heading, Text } from 'rebass'
-import { ThemeProps } from '../config/theme'
-import { Post } from '../models/posts'
+import { Post } from '../lib/posts'
+import { ThemeProps } from '../lib/theme'
 import DateFormater from './date-formater'
 
 const PostLink: FC<{ slug: string }> = ({ slug, children }) => (

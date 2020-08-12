@@ -5,8 +5,8 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 import { useEffect } from 'react'
-import theme from '../config/theme'
 import { pageview } from '../lib/gtag'
+import theme from '../lib/theme'
 
 // see: https://nextjs.org/docs/advanced-features/custom-app
 function MyApp({ Component, pageProps }: AppProps) {

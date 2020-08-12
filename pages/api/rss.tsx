@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '../../config/info'
-import { Post, getAllPosts } from '../../models/posts'
+import { Post, getAllPosts } from '../../lib/posts'
 
 const POST_PARAMETER = ['title', 'slug', 'content', 'createdAt'] as const
 type RSSPost = Pick<Post, typeof POST_PARAMETER[number]>

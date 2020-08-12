@@ -3,7 +3,7 @@ import { FC } from 'react'
 import Layout from '../components/layout'
 import PostPreview from '../components/post-list'
 import { SITE_NAME } from '../config/info'
-import { getAllPosts, Field, Post } from '../models/posts'
+import { getAllPosts, Field, Post } from '../lib/posts'
 
 const Top: FC<{
   posts: Pick<Post, 'slug' | 'title' | 'content' | 'createdAt'>[]

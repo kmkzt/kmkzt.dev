@@ -11,7 +11,7 @@ import Loading from '../../components/loading'
 import Markdown from '../../components/markdown'
 import { SITE_NAME } from '../../config/info'
 import markdownToHtml from '../../lib/markdownToHtml'
-import { getPostBySlug, getAllPosts, Field, Post } from '../../models/posts'
+import { getPostBySlug, getAllPosts, Field, Post } from '../../lib/posts'
 
 type PageProps = Pick<
   Post,
