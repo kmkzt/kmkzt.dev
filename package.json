@@ -6,6 +6,7 @@
     "build": "next build",
     "build:static": "yarn next build; yarn next export",
     "start": "next start",
+    "generate:ogp": "scripts/generate/ogp.js",
     "create-post": "scripts/create-post.js"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
     "@typescript-eslint/parser": "3.7.1",
     "@typescript-eslint/typescript-estree": "3.7.1",
     "babel-eslint": "10.1.0",
+    "canvas": "2.6.1",
     "copy-webpack-plugin": "6.0.3",
     "eslint": "7.5.0",
     "eslint-config-prettier": "6.11.0",
