@@ -5,13 +5,13 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { Heading, Box, Text, Flex } from 'rebass'
-import { getPostBySlug, getAllPosts, Field, Post } from '../../api/posts'
 import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
 import Loading from '../../components/loading'
 import Markdown from '../../components/markdown'
 import { SITE_NAME } from '../../config/info'
 import markdownToHtml from '../../lib/markdownToHtml'
+import { getPostBySlug, getAllPosts, Field, Post } from '../../models/posts'
 
 type PageProps = Pick<
   Post,

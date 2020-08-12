@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "build:static": "yarn next build; yarn next export",
     "start": "next start",
     "create-post": "scripts/create-post.js"
   },

@@ -2,6 +2,16 @@ const { resolve } = require('path')
 const CopyFilePlugin = require('copy-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 module.exports = {
+  async rewrites() {
+    return [
+      // For Only SSR.
+      // https://github.com/vercel/next.js/issues/9051#issuecomment-556824393
+      {
+        source: '/rss.xml',
+        destination: '/api/rss',
+      },
+    ]
+  },
   webpack(config, { dev, isServer }) {
     // https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
     if (!isServer) {
