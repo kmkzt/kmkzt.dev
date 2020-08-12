@@ -45,6 +45,9 @@ const Layout: FC = ({ children }) => (
         img {
           max-width: 100%;
         }
+        style {
+          display: none;
+        }
       `}
     />
     <Box width={['100%', '100%', '800px']} mx="auto" minHeight="100vh">
