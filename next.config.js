@@ -6,10 +6,10 @@ module.exports = {
     return [
       // For Only SSR.
       // https://github.com/vercel/next.js/issues/9051#issuecomment-556824393
-      {
-        source: '/rss.xml',
-        destination: '/api/rss',
-      },
+      // {
+      //   source: '/rss.xml',
+      //   destination: '/api/rss',
+      // },
     ]
   },
   webpack(config, { dev, isServer }) {

@@ -1,6 +1,0 @@
-export const SITE_URL = 'https://kmkzt.dev'
-export const SITE_NAME = 'kmkzt.dev'
-export const SITE_DESCRIPTION = '個人学習の内容を書くブログ。'
-export const GITHUB_ACCOUNT = 'kmkzt'
-export const TWITTER_ACCOUNT = 'kameikazuto'
-export const GA_TRACKING_ID = 'UA-91428067-3'

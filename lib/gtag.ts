@@ -1,4 +1,4 @@
-import { GA_TRACKING_ID } from '../config/info'
+import { GA_TRACKING_ID } from '../blog-info'
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: any) => {
   // @ts-ignore

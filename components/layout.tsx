@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Heading, Flex, Box, Link as RELink } from 'rebass'
-import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, SITE_NAME } from '../config/info'
+import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, SITE_NAME } from '../blog-info'
 
 const SNSLink = styled(RELink)`
   & > * {

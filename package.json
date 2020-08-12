@@ -3,10 +3,12 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "yarn generate; yarn next build",
     "build:static": "yarn next build; yarn next export",
     "start": "next start",
+    "generate": "npm-run-all -p generate:*",
     "generate:ogp": "scripts/generate/ogp.js",
+    "generate:rss": "scripts/generate/rss.js",
     "create-post": "scripts/create-post.js"
   },
   "dependencies": {
@@ -48,6 +50,7 @@
     "eslint-plugin-react": "7.20.5",
     "eslint-plugin-react-hooks": "4.0.8",
     "husky": "4.2.5",
+    "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
     "typescript": "3.9.7",
     "write-file-webpack-plugin": "4.5.1"

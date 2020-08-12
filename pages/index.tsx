@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { FC } from 'react'
+import { SITE_NAME } from '../blog-info'
 import Layout from '../components/layout'
 import PostPreview from '../components/post-list'
-import { SITE_NAME } from '../config/info'
 import { getAllPosts, Field, Post } from '../lib/posts'
 
 const Top: FC<{

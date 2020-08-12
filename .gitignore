@@ -15,6 +15,7 @@
 # production
 /build
 /public/posts
+/public/rss.xml
 
 # misc
 .DS_Store

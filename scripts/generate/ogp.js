@@ -89,11 +89,11 @@ async function main() {
     const dir = path.join(process.cwd(), `public/posts/${slug}`)
     fs.mkdir(dir, { recursive: true }, (err) => {
       if (err) {
-        console.error(err)
+        console.error(`Generate Error: ${dir}/ogp.png ${title}.` + err)
         return
       }
       generateImage(title, `${dir}/ogp.png`)
-      console.log(`[ogp:gen] ${dir}/ogp.png ${title}`)
+      console.log(`Generate Success: ${dir}/ogp.png ${title}`)
     })
   })
 }

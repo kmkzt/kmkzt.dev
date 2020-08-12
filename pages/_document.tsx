@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
-import { GA_TRACKING_ID, SITE_NAME } from '../config/info'
+import { GA_TRACKING_ID, SITE_NAME } from '../blog-info'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

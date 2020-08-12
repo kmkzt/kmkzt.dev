@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '../../config/info'
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '../../blog-info'
 import { Post, getAllPosts } from '../../lib/posts'
 
 const POST_PARAMETER = ['title', 'slug', 'content', 'createdAt'] as const
@@ -37,7 +37,7 @@ ${posts.reduce(
 // https://github.com/vercel/next.js/blob/canary/examples/with-sitemap/scripts/generate-sitemap.js
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-  const posts = getAllPosts(POST_PARAMETER as any)
+  const posts = getAllPosts(POST_PARAMETER as any) // Don't work production.
   res.setHeader('Content-Type', 'text/xml')
   res.write(RSSXml(posts))
   res.end()
