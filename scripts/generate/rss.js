@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const matter = require('gray-matter')
 const { SITE_NAME, SITE_URL, SITE_DESCRIPTION } = require('../../blog-info')
-
+const { POSTS_DIRECTORY } = require('../../blog-info.js')
 const RSSXml = (posts) => `<?xml version="1.0" ?>
 <rss version="2.0">
 <channel>
@@ -33,10 +33,8 @@ ${posts.reduce(
 </channel>
 </rss>`
 
-const postsDirectory = path.join(process.cwd(), '_posts')
-
 const getPost = (slug) => {
-  const fullPath = path.join(postsDirectory, `${slug}/index.md`)
+  const fullPath = path.join(POSTS_DIRECTORY, `${slug}/index.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents, { excerpt: true })
   return {
@@ -46,13 +44,13 @@ const getPost = (slug) => {
   }
 }
 const getAllPosts = () => {
-  const slugs = fs.readdirSync(postsDirectory)
+  const slugs = fs.readdirSync(POSTS_DIRECTORY)
   return slugs.map(getPost)
 }
 const generateRSS = () => {
   const posts = getAllPosts()
   fs.writeFileSync(path.join(process.cwd(), 'public/rss.xml'), RSSXml(posts))
-  console.log('Genereate Success: rss.xml')
+  console.log('Generate Success: rss.xml')
 }
 
 generateRSS()

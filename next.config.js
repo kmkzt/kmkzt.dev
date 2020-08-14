@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 const CopyFilePlugin = require('copy-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
+const { POSTS_DIRECTORY_NAME } = require('./blog-info.js')
 module.exports = {
   async rewrites() {
     return [
@@ -40,7 +41,7 @@ module.exports = {
       new CopyFilePlugin({
         patterns: [
           {
-            context: '_posts',
+            context: POSTS_DIRECTORY_NAME,
             from: '**/*.{jpg,png}',
             to: resolve(__dirname, 'public/posts'),
             // The `content` argument is a [`Buffer`](https://nodejs.org/api/buffer.html) object, it could be converted to a `String` to be processed using `content.toString()`

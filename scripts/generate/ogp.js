@@ -3,16 +3,16 @@ const fs = require('fs')
 const path = require('path')
 const canvas = require('canvas')
 const matter = require('gray-matter')
-const postsDirectory = path.join(process.cwd(), '_posts')
+const { POSTS_DIRECTORY } = require('../../blog-info')
 
 const getPostTitle = (slug) => {
-  const fullPath = path.join(postsDirectory, `${slug}/index.md`)
+  const fullPath = path.join(POSTS_DIRECTORY, `${slug}/index.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data } = matter(fileContents, { excerpt: true })
   return data.title
 }
 const getAllPostsTitle = () => {
-  const slugs = fs.readdirSync(postsDirectory)
+  const slugs = fs.readdirSync(POSTS_DIRECTORY)
   return slugs.reduce(
     (tl, slug) => ({
       ...tl,
