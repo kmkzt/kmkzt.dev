@@ -1,8 +1,8 @@
 // https://github.com/rebassjs/rebass/blob/master/packages/preset-material/src/index.js
 
 const theme = {
-  googleFonts:
-    'https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700&display=swap',
+  // googleFonts:
+  //   'https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700&display=swap',
   colors: {
     text: '#000',
     background: '#fff',
@@ -11,11 +11,11 @@ const theme = {
     muted: '#f6f6f6',
     gray: '#555',
   },
-  fonts: {
-    body: 'Roboto, sans-serif',
-    heading: 'inherit',
-    monospace: '"Roboto Mono", monospace',
-  },
+  // fonts: {
+  //   body: "'Fira Sans', sans-serif",
+  //   heading: 'inherit',
+  //   monospace: '"Roboto Mono", monospace',
+  // },
   fontSizes: [10, 12, 14, 16, 20, 24, 34, 48, 60, 96],
   fontWeights: {
     body: 400,

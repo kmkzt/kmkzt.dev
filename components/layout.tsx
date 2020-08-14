@@ -6,7 +6,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Heading, Flex, Box, Link as RELink } from 'rebass'
-import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, SITE_NAME } from '../blog-info'
+import {
+  GITHUB_ACCOUNT,
+  TWITTER_ACCOUNT,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+} from '../blog-info'
 
 const SNSLink = styled(RELink)`
   padding: 0 2px;
@@ -15,25 +20,24 @@ const SNSLink = styled(RELink)`
 const Layout: FC = ({ children }) => (
   <>
     <Head>
-      {/* <meta
-          name="description"
-          content={`A statically generated blog example using Next.js and ${SITE_NAME}.`}
-        /> */}
+      <meta name="description" content={SITE_DESCRIPTION} />
       {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
     </Head>
     <Global
       styles={css`
-        html,
-        body {
-          margin: 0;
-          min-height: 100%;
-          min-height: 100vh;
-          font-family: Helvetica, Arial, sans-serif;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;500;700&family=Noto+Sans+JP:wght@100;300;500;700&display=swap');
+
         * {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
+          font-family: 'Fira Sans', 'Noto Sans JP', 'Helvetica Neue', Arial,
+            'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+        }
+        html,
+        body {
+          min-height: 100%;
+          min-height: 100vh;
         }
         a {
           color: inherit;
