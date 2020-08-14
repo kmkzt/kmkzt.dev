@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { Heading, Box, Text, Flex } from 'rebass'
-import { SITE_NAME } from '../../blog-info'
+import { SITE_NAME, TWITTER_ACCOUNT, SITE_URL } from '../../blog-info'
 import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
 import Loading from '../../components/loading'
@@ -15,7 +15,7 @@ import { getPostBySlug, getAllPosts, Field, Post } from '../../lib/posts'
 
 type PageProps = Pick<
   Post,
-  'slug' | 'title' | 'createdAt' | 'updatedAt' | 'content'
+  'slug' | 'title' | 'createdAt' | 'updatedAt' | 'content' | 'excerpt'
 >
 
 interface PageParams extends ParsedUrlQuery {
@@ -25,6 +25,7 @@ interface PageParams extends ParsedUrlQuery {
 const PostPage: FC<PageProps> = ({
   slug,
   title,
+  excerpt,
   createdAt,
   updatedAt,
   content,
@@ -41,6 +42,8 @@ const PostPage: FC<PageProps> = ({
     )
   }
 
+  const pageUrl = SITE_URL + '/posts/' + slug
+
   return (
     <Layout>
       <article>
@@ -48,7 +51,12 @@ const PostPage: FC<PageProps> = ({
           <title>
             {title} | {SITE_NAME}
           </title>
-          {/* <meta property="og:image" content={ogImage} /> */}
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={excerpt ?? ''} />
+          <meta property="og:url" content={pageUrl} />
+          <meta property="og:image" content={pageUrl + '/ogp.png'} />
+          <meta name="twitter:site" content={`@${TWITTER_ACCOUNT}`} />
+          <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <Box>
           <Heading as="h1">{title}</Heading>
