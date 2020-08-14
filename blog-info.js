@@ -1,4 +1,4 @@
-module.exports.SITE_URL = 'https://kmkzt.dev'
+module.exports.SITE_URL = process.env.VERCEL_URL || 'https://localhost:3000'
 module.exports.SITE_NAME = 'kmkzt.dev'
 module.exports.SITE_DESCRIPTION = '個人学習の内容を書くブログ。'
 module.exports.GITHUB_ACCOUNT = 'kmkzt'
