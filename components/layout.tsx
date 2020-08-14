@@ -9,10 +9,7 @@ import { Heading, Flex, Box, Link as RELink } from 'rebass'
 import { GITHUB_ACCOUNT, TWITTER_ACCOUNT, SITE_NAME } from '../blog-info'
 
 const SNSLink = styled(RELink)`
-  & > * {
-    display: inline-block;
-    padding: 0 2px;
-  }
+  padding: 0 2px;
 `
 
 const Layout: FC = ({ children }) => (
@@ -46,7 +43,7 @@ const Layout: FC = ({ children }) => (
           max-width: 100%;
         }
         style {
-          display: none;
+          display: none !important;
         }
       `}
     />
