@@ -5,7 +5,7 @@ module.exports.SITE_URL = `https://${
   process.env.SITE_URL || process.env.VERCEL_URL || 'localhost:3000'
 }`
 module.exports.SITE_NAME = 'kmkzt.dev'
-module.exports.SITE_DESCRIPTION = '個人学習の内容を書くブログ。'
+module.exports.SITE_DESCRIPTION = 'WEBサイト制作者の個人学習内容を書くブログ。'
 module.exports.POSTS_DIRECTORY = join(process.cwd(), POSTS_DIRECTORY_NAME)
 module.exports.POSTS_DIRECTORY_NAME = POSTS_DIRECTORY_NAME
 module.exports.GITHUB_ACCOUNT = 'kmkzt'

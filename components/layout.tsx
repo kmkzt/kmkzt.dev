@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FC } from 'react'
-import { Heading, Flex, Box, Link as RELink } from 'rebass'
+import { Flex, Box, Link as RELink, Text } from 'rebass'
 import {
   GITHUB_ACCOUNT,
   TWITTER_ACCOUNT,
@@ -54,17 +54,28 @@ const Layout: FC = ({ children }) => (
     <Box width={['100%', '100%', '800px']} mx="auto" minHeight="100vh">
       <Flex
         as="header"
+        flexWrap={['wrap', 'wrap', 'nowrap']}
         justifyContent="space-between"
         alignItems="center"
+        alignContent="center"
         px="8px"
         py="4px"
       >
-        <Heading as="h1" style={{ textAlign: 'center' }}>
+        <Text
+          width={['100%', 'auto', 'auto']}
+          mb={['12px', '12px', '0']}
+          sx={{
+            textAlign: ['center', 'left', 'left'],
+          }}
+        >
           <Link href="/">
-            <a>{SITE_NAME}</a>
+            <a>
+              <h1>{SITE_NAME}</h1>
+            </a>
           </Link>
-        </Heading>
-        <Flex justifyContent="center">
+          {SITE_DESCRIPTION}
+        </Text>
+        <Flex width={['100%', 'auto', 'auto']} justifyContent="center">
           <SNSLink href={`https://twitter.com/${TWITTER_ACCOUNT}`}>
             <Twitter size={24} />
           </SNSLink>
