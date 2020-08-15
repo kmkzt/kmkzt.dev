@@ -54,7 +54,8 @@ const PostPage: FC<PageProps> = ({
           <meta property="og:title" content={title} />
           <meta property="og:description" content={excerpt ?? ''} />
           <meta property="og:url" content={pageUrl} />
-          <meta property="og:image" content={pageUrl + '/ogp.png'} />
+          {/* TODO: ogp.pngの文字化け修正。vercel上だと文字化けする。
+          <meta property="og:image" content={pageUrl + '/ogp.png'} /> */}
           <meta name="twitter:site" content={`@${TWITTER_ACCOUNT}`} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
