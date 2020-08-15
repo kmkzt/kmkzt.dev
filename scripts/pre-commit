@@ -2,6 +2,4 @@
 
 echo -n -e 'START PRE-COMMIT CHECK!\n'
 # Update timestamp
-echo -n -e '[start] check markdown time\n'
 ./scripts/updatetime-post-markdown
-echo -n -e '[done] check markdown time!\n'

@@ -21,7 +21,11 @@ SED="sed -e \"s/${SPACE}${FILE_PREFIX}//\""
 
 # Git status on stage
 UNUSE_LINE_NUM=$(git status | grep -n "Changes not staged for commit:" | sed -e "s/:.*//g")
-GIT_STATUS_STAGE="git status | sed \"${UNUSE_LINE_NUM},\\\$d\" | sed \"1,3d\""
+if [test $UNUSE_LINE_NUM -eq 0]; then
+  GIT_STATUS_STAGE="git status | sed \"${UNUSE_LINE_NUM},\\\$d\" | sed \"1,3d\""
+else
+  GIT_STATUS_STAGE="git status | sed \"1,3d\""
+fi
 
 # For debug
 # echo $GIT_STATUS_STAGE

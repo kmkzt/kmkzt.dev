@@ -35,6 +35,13 @@ const MarkdownWrap = styled.div<ThemeProps>`
     border: 1px solid #fff;
     padding: 4px 8px;
   }
+  ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
   a:link,
   a:visited {
     color: ${({ theme }) => theme?.colors?.primary || '#16f'};

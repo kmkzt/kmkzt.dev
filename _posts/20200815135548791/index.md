@@ -1,8 +1,8 @@
 ---
-title: 'Next.jsとvercelを利用してMarkdownで気軽に記事を書けるブログを作る。'
+title: Next.jsとvercelを利用してMarkdownで気軽に記事を書けるブログを作る。
 tags: 'Next.js, Markdown'
 createdAt: '2020-08-15T13:55:48.791Z'
-updatedAt: '2020-08-15T13:55:48.791Z'
+updatedAt: '2020-08-15T17:08:51.093Z'
 ---
 
 ## なぜ、Markdown でブログを作りたいか？
@@ -232,12 +232,14 @@ export async function getStaticProps({ params }) {
 }
 ```
 
-実際のコード差分は一応載せときます。
+実際のコード差分を一応載せときます。
+
 https://github.com/kmkzt/kmkzt.dev/commit/0b16c3a14ab0614575061208c495a33b3207bdfa
 
-マークダウンのベースのパス設定をいろんなとこで使い回したかったのでこちらに npm に公開してみました。
-使ってみて問題あったら教えてください。
-https://github.com/kmkzt/remark-basepath
+マークダウンのベースのパス設定をいろんなとこで使い回したかったのでこちらに npm に公開しました。
+使ってみた方いたら感想などを教えてください。
+
+[remark-basepath](https://github.com/kmkzt/remark-basepath)
 
 ## 今後やっていきたいこと
 
