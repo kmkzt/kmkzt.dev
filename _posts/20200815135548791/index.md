@@ -1,8 +1,8 @@
 ---
-title: Next.jsとvercelを利用してMarkdownで気軽に記事を書けるブログを作る。
+title: Next.jsとVercelを利用してMarkdownで気軽に記事を書けるブログを作る。
 tags: 'Next.js, Markdown'
 createdAt: '2020-08-15T13:55:48.791Z'
-updatedAt: '2020-08-15T17:24:48.994Z'
+updatedAt: '2020-08-15T17:26:04.338Z'
 ---
 
 ## なぜ、Markdown でブログを作りたいか？
@@ -27,7 +27,7 @@ updatedAt: '2020-08-15T17:24:48.994Z'
 
 ## どうやって作ったか？
 
-基本的には vercel と next.js を利用すれば簡単に作れることが分かったので下記の [Next.js の examples](https://github.com/vercel/next.js/tree/canary/examples) の内容から拝借して作成しました。
+基本的には Vercel と next.js を利用すれば簡単に作れることが分かったので下記の [Next.js の examples](https://github.com/Vercel/next.js/tree/canary/examples) の内容から拝借して作成しました。
 これを利用すると\_posts というディレクトリにマークダウンを追加すると記事が公開されるブログが作れます。Vercel と連携すると URL で公開できます。
 
 https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript
@@ -248,6 +248,6 @@ https://github.com/kmkzt/kmkzt.dev/commit/0b16c3a14ab0614575061208c495a33b3207bd
 Next.js で amp が簡単に対応できそうなのでその辺りを作っていきたいです。
 記事の本体は Amp のスタイルの制限などを気にせずに開発して、Amp ページは別でスタイルを管理できるかみたいなことを試したいです。
 
-### vercel を利用したプレビュー環境、リリースフロー
+### Vercel を利用したプレビュー環境、リリースフロー
 
 Vercel はこまめデプロイされるので PR 毎にプレビュー環境を簡単に作れそうと感じたのその辺り試したいです。環境変数が production, development,preview に分けることができるのですが設定間違えると本番環境や情報がアクセスしてしまいそうなのでどのように管理すると良いかまとめたいです。
