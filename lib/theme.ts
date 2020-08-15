@@ -47,13 +47,13 @@ const theme = {
   text: {
     heading: {
       // fontFamily: 'heading',
-      lineHeight: 'heading',
-      fontWeight: 'heading',
+      // lineHeight: 'heading',
+      // fontWeight: 'heading',
     },
     display: {
       // fontFamily: 'heading',
-      fontWeight: 'heading',
-      lineHeight: 'heading',
+      // fontWeight: 'heading',
+      // lineHeight: 'heading',
       fontSize: [6, 7],
     },
     caps: {
@@ -92,7 +92,7 @@ const theme = {
     primary: {
       variant: 'text.caps',
       fontSize: 2,
-      fontWeight: 'body',
+      // fontWeight: 'body',
       color: 'background',
       bg: 'primary',
       borderRadius: 'default',
@@ -112,8 +112,8 @@ const theme = {
   styles: {
     root: {
       // fontFamily: 'body',
-      fontWeight: 'body',
-      lineHeight: 'body',
+      // fontWeight: 'body',
+      // lineHeight: 'body',
     },
   },
 }
