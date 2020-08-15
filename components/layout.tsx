@@ -25,15 +25,18 @@ const Layout: FC = ({ children }) => (
     </Head>
     <Global
       styles={css`
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;500;700&family=Noto+Sans+JP:wght@100;300;500;700&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;500;700&family=Noto+Sans+JP:wght@100;300;500;700&display=swap'); */
 
         * {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
           word-wrap: break-word;
-          font-family: 'Fira Sans', 'Noto Sans JP', 'Helvetica Neue', Arial,
-            'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+          /* TODO: Optimize web-font
+           font-family: 'Fira Sans', 'Noto Sans JP', 'Helvetica Neue', Arial,
+            'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; */
+          font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+            'Hiragino Sans', Meiryo, sans-serif;
         }
         html,
         body {
