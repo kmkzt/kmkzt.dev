@@ -2,7 +2,7 @@
 title: Next.jsとvercelを利用してMarkdownで気軽に記事を書けるブログを作る。
 tags: 'Next.js, Markdown'
 createdAt: '2020-08-15T13:55:48.791Z'
-updatedAt: '2020-08-15T17:08:51.093Z'
+updatedAt: '2020-08-15T17:24:48.994Z'
 ---
 
 ## なぜ、Markdown でブログを作りたいか？
@@ -140,7 +140,7 @@ https://github.com/kmkzt/kmkzt.dev/commit/0943bfeb3f6092f73def2e337bb38501d00acc
 
 webpack に plugin の設定 を追加することで\_posts ディレクトリ内の画像をコピーできます。
 下記で必要なライブラリをインストールします。
-`yarn -D copy-webpack-plugin write-file-webpack-plugin`
+`yarn add -D copy-webpack-plugin write-file-webpack-plugin`
 
 ```js
 // next.config.js
