@@ -4,7 +4,7 @@ import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { Heading, Box, Text, Flex } from 'rebass'
+import { Box, Text, Flex } from 'rebass'
 import { SITE_NAME, TWITTER_ACCOUNT, SITE_URL } from '../../blog-info'
 import DateFormater from '../../components/date-formater'
 import Layout from '../../components/layout'
@@ -60,7 +60,7 @@ const PostPage: FC<PageProps> = ({
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <Box>
-          <Heading as="h1">{title}</Heading>
+          <Text as="h1">{title}</Text>
           <Flex>
             <Text mr={2}>
               公開日: <DateFormater dateString={createdAt} />
