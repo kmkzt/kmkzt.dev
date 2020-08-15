@@ -3,13 +3,15 @@
   "private": true,
   "scripts": {
     "dev": "next",
+    "dev:pr": "IS_PREVIEW=true next",
     "build": "yarn generate; yarn next build",
     "build:static": "yarn next build; yarn next export",
     "start": "next start",
     "generate": "npm-run-all -p generate:*",
     "generate:ogp": "scripts/generate/ogp.js",
     "generate:rss": "scripts/generate/rss.js",
-    "create-post": "scripts/create-post.js"
+    "create-post": "scripts/create-post.js",
+    "create-post:pr": "IS_PREVIEW=true yarn create-post"
   },
   "dependencies": {
     "@emotion/cache": "11.0.0-next.12",

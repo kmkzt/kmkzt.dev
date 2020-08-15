@@ -6,7 +6,7 @@ const DateFormater: FC<{ dateString: string }> = ({ dateString }) => (
   <Text as="time" dateTime={dateString}>
     {
       // format(date, 'LLLL	d, yyyy')
-      format(parseISO(dateString), 'yyyy年MM月d日hh時')
+      format(parseISO(dateString), 'yyyy年MM月d日')
     }
   </Text>
 )
