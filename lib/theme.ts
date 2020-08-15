@@ -18,8 +18,8 @@ const theme = {
   // },
   fontSizes: [10, 12, 14, 16, 20, 24, 34, 48, 60, 96],
   fontWeights: {
-    body: 400,
-    heading: 400,
+    body: 300,
+    heading: 500,
     bold: 700,
   },
   lineHeights: {
@@ -46,12 +46,12 @@ const theme = {
   // rebass variants
   text: {
     heading: {
-      fontFamily: 'heading',
+      // fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
     },
     display: {
-      fontFamily: 'heading',
+      // fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
       fontSize: [6, 7],
@@ -111,7 +111,7 @@ const theme = {
   },
   styles: {
     root: {
-      fontFamily: 'body',
+      // fontFamily: 'body',
       fontWeight: 'body',
       lineHeight: 'body',
     },
