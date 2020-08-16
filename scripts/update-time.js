@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const matter = require('gray-matter')
-const { join } = require('path')
 const { readFile, writeFileSync } = require('fs')
+const { join } = require('path')
+const matter = require('gray-matter')
 
 const updateFile = join(process.cwd(), process.argv[2])
 
