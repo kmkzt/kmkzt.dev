@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
-const canvas = require('canvas')
+const { registerFont, createCanvas } = require('canvas')
 const matter = require('gray-matter')
 const { POSTS_DIRECTORY } = require('../../blog-info')
 
@@ -27,11 +27,9 @@ const H = 315
 const LINE_HEIGHT = 30
 
 function getRows(ctx, text) {
-  const words = text.split(' ')
-
   let rows = []
   let currentRow = []
-  let tokens = words.slice(0)
+  let tokens = text.split('')
   let token
   while ((token = tokens.shift())) {
     const mText = [...currentRow, token].join(' ')
@@ -57,20 +55,25 @@ function renderText(ctx, rows) {
     const m = ctx.measureText(rowText)
 
     const w = (W - m.width) / 2
-    // const h = (LINE_HEIGHT + 12) * (i + 1)
-    const h = 40 + 210 / 2 - (LINE_HEIGHT + 12) * (rowCount - i - 1)
+    const h = H / 2 - (LINE_HEIGHT + 12) * (rowCount - i - 1)
 
     ctx.fillText(rowText, w, h)
   }
 }
 
 async function generateImage(text, outputPath) {
-  const cvs = canvas.createCanvas(W, H)
+  const cvs = createCanvas(W, H)
   const ctx = cvs.getContext('2d')
-  ctx.font = `${LINE_HEIGHT}px Impact`
+
+  registerFont(
+    path.join(process.cwd(), 'scripts/generate/NotoSansJP-Regular.otf'),
+    {
+      family: 'NotoSansJp',
+    }
+  )
+  ctx.font = `${LINE_HEIGHT}px NotoSansJp`
 
   const rows = getRows(ctx, text)
-
   ctx.fillStyle = 'white'
   ctx.fillRect(0, 0, W, H)
 
