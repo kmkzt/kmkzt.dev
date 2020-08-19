@@ -13,7 +13,7 @@ const {
 const getDate = (d) => {
   const da = new Date()
   da.setTime(Date.parse(d))
-  return da.toString()
+  return da.toUTCString()
 }
 const postLink = (sl) => `${SITE_URL}/posts/${sl}`
 const RSSXml = (posts) => `<?xml version="1.0" ?>
