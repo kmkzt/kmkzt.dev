@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
-import { useCallback, useState } from 'react'
 import { ThemeProps } from '../lib/theme'
 
 const MarkdownWrap = styled.div<ThemeProps>`
@@ -52,20 +51,13 @@ const MarkdownWrap = styled.div<ThemeProps>`
   }
 `
 export default function Markdown({ content }: { content: string }) {
-  const [media, setMedia] = useState('print')
-  const handleLoadStyle = useCallback(() => {
-    if (content.includes('<code')) {
-      setMedia('all')
-    }
-  }, [content])
   return (
     <>
       <Head>
         <link
           rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai.min.css"
-          media={media}
-          onLoad={handleLoadStyle}
+          media="all"
         />
       </Head>
       <MarkdownWrap>
