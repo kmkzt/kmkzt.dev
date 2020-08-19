@@ -16,10 +16,8 @@ const getDate = (d) => {
   return da.toString()
 }
 const postLink = (sl) => `${SITE_URL}/posts/${sl}`
-const RSSXml = (
-  posts
-) => `<?xml xmlns:atom="http://www.w3.org/2005/Atom" version="1.0" ?>
-<rss version="2.0">
+const RSSXml = (posts) => `<?xml version="1.0" ?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 <channel>
 <title>${SITE_NAME}</title>
 <link>${SITE_URL}</link>
