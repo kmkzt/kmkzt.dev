@@ -5,7 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
-import { GA_TRACKING_ID, SITE_NAME } from '../blog-info'
+import { SITE_NAME, PATH_RSS, GA_TRACKING_ID } from '../blog-info'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -30,6 +30,12 @@ export default class MyDocument extends Document {
       <html lang="ja">
         <Head>
           <meta charSet="utf-8" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={SITE_NAME}
+            href={PATH_RSS}
+          />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -44,12 +50,6 @@ export default class MyDocument extends Document {
                 'page_path: window.location.pathname,' +
                 '});',
             }}
-          />
-          <link
-            rel="alternate"
-            type="application/rss+xml"
-            title={SITE_NAME}
-            href="/rss.xml"
           />
         </Head>
         <body>

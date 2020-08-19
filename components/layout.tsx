@@ -26,7 +26,6 @@ const Layout: FC = ({ children }) => (
     <Global
       styles={css`
         /* @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;500;700&family=Noto+Sans+JP:wght@100;300;500;700&display=swap'); */
-
         * {
           margin: 0;
           padding: 0;

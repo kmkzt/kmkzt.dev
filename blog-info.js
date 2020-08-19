@@ -6,6 +6,7 @@ exports.SITE_URL = `https://${
 }`
 exports.SITE_NAME = 'kmkzt.dev'
 exports.SITE_DESCRIPTION = 'WEBサイト制作者の個人学習内容を書くブログ。'
+exports.PATH_RSS = '/rss.xml'
 exports.POSTS_DIRECTORY = join(process.cwd(), POSTS_DIRECTORY_NAME)
 exports.POSTS_DIRECTORY_NAME = POSTS_DIRECTORY_NAME
 exports.GITHUB_ACCOUNT = 'kmkzt'

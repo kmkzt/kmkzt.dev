@@ -2,24 +2,38 @@
 const fs = require('fs')
 const path = require('path')
 const matter = require('gray-matter')
-const { SITE_NAME, SITE_URL, SITE_DESCRIPTION } = require('../../blog-info')
-const { POSTS_DIRECTORY } = require('../../blog-info.js')
-const RSSXml = (posts) => `<?xml version="1.0" ?>
+const {
+  SITE_NAME,
+  SITE_URL,
+  SITE_DESCRIPTION,
+  PATH_RSS,
+  POSTS_DIRECTORY,
+} = require('../../blog-info')
+
+const getDate = (d) => {
+  const da = new Date()
+  da.setTime(Date.parse(d))
+  return da.toString()
+}
+const postLink = (sl) => `${SITE_URL}/posts/${sl}`
+const RSSXml = (
+  posts
+) => `<?xml xmlns:atom="http://www.w3.org/2005/Atom" version="1.0" ?>
 <rss version="2.0">
 <channel>
 <title>${SITE_NAME}</title>
 <link>${SITE_URL}</link>
 <description>${SITE_DESCRIPTION}</description>
+<atom:link rel="self" href="${SITE_URL}${PATH_RSS}" type="application/rss+xml"/>
 <language>ja</language>
-<lastBuildDate>${Date.parse(posts[0].createdAt)}</lastBuildDate>
+<lastBuildDate>${getDate(posts[0].createdAt)}</lastBuildDate>
 ${posts.reduce(
   (xml, { title, slug, content, createdAt }) =>
     `${xml}<item>
   <title>${title}</title>
-  <link>
-    ${`${SITE_URL}/posts/${slug}`}
-  </link>
-  <pubDate>${createdAt}</pubDate>
+  <link>${postLink(slug)}</link>
+  <guid isPermaLink="true">${postLink(slug)}</guid>
+  <pubDate>${getDate(createdAt)}</pubDate>
   <description>
     <![CDATA[${
       // TODO: fix contennt. replace html string.
@@ -49,7 +63,7 @@ const getAllPosts = () => {
 }
 const generateRSS = () => {
   const posts = getAllPosts()
-  fs.writeFileSync(path.join(process.cwd(), 'public/rss.xml'), RSSXml(posts))
+  fs.writeFileSync(path.join(process.cwd(), 'public', PATH_RSS), RSSXml(posts))
   console.log('Generate Success: rss.xml')
 }
 
