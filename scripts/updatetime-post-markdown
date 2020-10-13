@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# BACKUP MEMO: update timestamp
-# git status　\
-# | git diff --name-only --staged --diff-filter=M
+# MEMO: Update timestamp
+# git diff --name-only --staged --diff-filter=M
 # | grep -E \"_posts/.*.md$\"
 # | xargs -L 1 scripts/update-time.js
 
