@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# BACKUP MEMO: update timestamp
-# git status　\
-# | grep -E 'modified: (.*.md)' \
-# | sed -e "s/[ \t]*modified://" \
+# MEMO: Update timestamp
+# git diff --name-only --staged --diff-filter=M
+# | grep -E \"_posts/.*.md$\"
 # | xargs -L 1 scripts/update-time.js
 
 # Project config
