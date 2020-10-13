@@ -2,7 +2,7 @@
 title: Next.jsとVercelを利用してMarkdownで気軽に記事を書けるブログを作る。
 tags: 'Next.js, Markdown'
 createdAt: '2020-08-15T13:55:48.791Z'
-updatedAt: '2020-08-15T17:26:04.338Z'
+updatedAt: '2020-10-13T08:06:23.646Z'
 ---
 
 ## なぜ、Markdown でブログを作りたいか？
@@ -108,11 +108,14 @@ readFile(updateFile, (err, md) => {
 
 #### コミット前に日時を自動で更新される設定の追加
 
-これだけだと手動での手間が多いのでコミット前に日時を更新してくれるように設定を追加しました。[`husky`](https://github.com/typicode/husky)と[`lint-staged`](https://github.com/okonet/lint-staged)を利用すれば簡単にできそうな気がしてたのですが、新規ファイルか更新ファイルかの判定をうまくできなかったので`git status`のコマンドから無理矢理、更新ファイルを抽出して処理する shell を書きました。
-この辺がうまく更新できる方法があったら教えて欲しいです。
+これだけだと手動での手間が多いのでコミット前に日時を更新してくれるように設定を追加しました。[`husky`](https://github.com/typicode/husky)と[`lint-staged`](https://github.com/okonet/lint-staged)を利用して下記のようなシェルをコミット前に実行するようにしました。
 
-**設定内容**
-https://github.com/kmkzt/kmkzt.dev/commit/0943bfeb3f6092f73def2e337bb38501d00acc11
+
+```sh
+git diff --name-only --staged --diff-filter=M | \ 
+grep -E "_posts/.*.md$" | \ 
+xargs -L 1 scripts/update-time.js
+```
 
 ### 一つのディレクトリに画像を含めて記事をまとめる。
 
