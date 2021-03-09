@@ -1039,7 +1039,14 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.13.9":
+  version "7.13.10"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
+  integrity sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2":
   version "7.11.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.11.0.tgz#f10245877042a815e07f7e693faff0ae9d3a2aac"
   integrity sha512-qArkXsjJq7H+T86WrIFV0Fnu/tNOkZ4cgXmjkzAu3b/58D5mFIO8JH/y77t7C9q0OdDRdh9s7Ue5GasYssxtXw==
@@ -1128,21 +1135,21 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@emotion-icons/emotion-icon@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@emotion-icons/emotion-icon/-/emotion-icon-2.0.3.tgz#fa238c965abc62e91d20072ff61011d2044b779a"
-  integrity sha512-BYb0y+IMNXN3rePtubBC86QUir1h1ou+khxFz+HWW7rPfeCGJ72J/xyeTxuWcSe93FHt67V/ppHv2/OOBa61mg==
+"@emotion-icons/emotion-icon@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@emotion-icons/emotion-icon/-/emotion-icon-4.0.0.tgz#d0eb1331c01461b309e58dbcec735ff4d8bd5408"
+  integrity sha512-Kxu6WgspOrGzBObPMp0xy+V4HaCNDTUAurxPM26Twnj+Tal4luktV2dQBJX9ElEfV59zVFsUs1DiuOdsxUNtPw==
   dependencies:
-    "@babel/runtime" "^7.10.5"
-    "@emotion/is-prop-valid" "^0.8.7"
+    "@babel/runtime" "^7.12.5"
+    "@emotion/is-prop-valid" "^1.0.0"
 
-"@emotion-icons/simple-icons@2.15.0":
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/@emotion-icons/simple-icons/-/simple-icons-2.15.0.tgz#7c78f30da99e22e2e82a3d0aa2b836f24e15b184"
-  integrity sha512-BH6h69q5kDEQ46PxUD1V7IonRGBZOPiExH2pmwLFKL21J7Jc1J8M1sDr6rjxC9rTIalHPVgscBgufzn2mVXzyQ==
+"@emotion-icons/simple-icons@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@emotion-icons/simple-icons/-/simple-icons-3.11.0.tgz#dd93b6a424a6e861b6dd07b9814c985fca49c08a"
+  integrity sha512-XOR4GI+yGgTR+ddXhDhXMZn17wom4YJhx+yBWYKHPQaTDN82VpxAChZ6MWrdfSU9OdU9i31jQ//tcdob+DQZVg==
   dependencies:
-    "@babel/runtime" "^7.10.5"
-    "@emotion-icons/emotion-icon" "2.0.3"
+    "@babel/runtime" "^7.13.9"
+    "@emotion-icons/emotion-icon" "4.0.0"
 
 "@emotion/babel-plugin@^11.0.0":
   version "11.0.0"
@@ -1220,7 +1227,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
-"@emotion/is-prop-valid@0.8.8", "@emotion/is-prop-valid@^0.8.1", "@emotion/is-prop-valid@^0.8.7":
+"@emotion/is-prop-valid@0.8.8", "@emotion/is-prop-valid@^0.8.1":
   version "0.8.8"
   resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
   integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==
