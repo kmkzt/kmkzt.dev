@@ -20,7 +20,7 @@
     "@emotion/server": "11.0.0",
     "@emotion/styled": "11.0.0",
     "@emotion-icons/simple-icons": "2.15.0",
-    "date-fns": "2.16.1",
+    "date-fns": "2.19.0",
     "gray-matter": "4.0.2",
     "next": "9.5.5",
     "react": "16.13.1",
