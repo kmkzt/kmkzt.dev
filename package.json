@@ -29,7 +29,7 @@
     "remark": "11.0.2",
     "remark-basepath": "1.0.1",
     "remark-highlight.js": "6.0.0",
-    "remark-html": "10.0.0"
+    "remark-html": "13.0.2"
   },
   "devDependencies": {
     "@kmkzt/eslint-config": "0.0.5",
