@@ -14,11 +14,11 @@
     "create-post:pr": "IS_PREVIEW=true yarn create-post"
   },
   "dependencies": {
-    "@emotion/cache": "11.0.0",
-    "@emotion/css": "11.0.0",
-    "@emotion/react": "11.0.0",
-    "@emotion/server": "11.0.0",
-    "@emotion/styled": "11.0.0",
+    "@emotion/cache": "11.13.1",
+    "@emotion/css": "11.13.4",
+    "@emotion/react": "11.13.3",
+    "@emotion/server": "11.11.0",
+    "@emotion/styled": "11.13.0",
     "@emotion-icons/simple-icons": "2.15.0",
     "date-fns": "2.16.1",
     "gray-matter": "4.0.3",
