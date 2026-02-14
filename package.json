@@ -26,9 +26,9 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "rebass": "4.0.7",
-    "remark": "11.0.2",
+    "remark": "15.0.1",
     "remark-basepath": "1.0.1",
-    "remark-highlight.js": "6.0.0",
+    "remark-highlight.js": "8.0.0",
     "remark-html": "10.0.0"
   },
   "devDependencies": {
